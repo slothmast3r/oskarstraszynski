@@ -5,8 +5,9 @@ export default {
       navigation: [
         {name: 'Home',key: 'home'},
         {name: 'About Me', key: 'aboutMe'},
-        {name: 'Contact', key: 'contact'}
-      ]
+        {name: 'Contact', key: 'contact'},
+      ],
+      mySignature: 'Oskar Straszyński',
     }
   },
 }

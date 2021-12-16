@@ -1,21 +1,20 @@
 <template>
   <div id="app">
+    <welcome></welcome>
     <navigation/>
-    <div style="border: 1px solid #2c3e50; background: lightgreen">
-      <router-view/>
-    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import Navigation from "./components/Navigation";
+import Welcome from "./components/Welcome";
 
 export default {
   name: 'App',
   components: {
+    Welcome,
     Navigation
-    // HelloWorld
   },
   methods: {
   }

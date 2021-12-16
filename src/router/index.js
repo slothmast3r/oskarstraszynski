@@ -9,8 +9,8 @@ const Bar = { template: '<div>bar</div>' }
 Vue.use(Router)
 
 const routes = [
-    { path: '/foo', name: 'Foo', component: Foo },
-    { path: '/bar', name: 'Bar', component: Bar },
+    { path: '/home', name: 'Home', component: Foo },
+    { path: '/aboutMe', name: 'About me', component: Bar },
     {
         path: '/contact',
         name: 'Contact',
@@ -23,4 +23,7 @@ const router = new Router({
     routes // short for `routes: routes`
 })
 
+router.afterEach((to,from)=>{
+    document.title = 'Oskar Str. | '+to.name
+})
 export default router
