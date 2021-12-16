@@ -1,17 +1,31 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-<!--    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+    <div style="height: 100px; width: 100px; background: red" @click="pushSomewhere"></div>
+    <div style="border: 1px solid #2c3e50; height: 100px; width: 100px; background: lightgreen">
+      <router-view/>
+    </div>
   </div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
     // HelloWorld
+  },
+  methods: {
+    pushSomewhere(){
+      console.log(this.$route)
+      if(this.$route.name === "Bar") {
+        this.$router.push('foo')
+      }
+      else{
+        this.$router.push('bar')
+      }
+    },
   }
 }
 </script>
