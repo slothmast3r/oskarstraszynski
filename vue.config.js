@@ -8,15 +8,15 @@ module.exports = {
             // so this assumes you have a file named `src/variables.sass`
             // Note: this option is named as "prependData" in sass-loader v8
             sass: {
-                additionalData: `@import "~@/variables.sass"`
+                additionalData: `@import "/scss/variables.sass"`
             },
             // by default the `sass` option will apply to both syntaxes
             // because `scss` syntax is also processed by sass-loader underlyingly
             // but when configuring the `prependData` option
             // `scss` syntax requires an semicolon at the end of a statement, while `sass` syntax requires none
-            // in that case, we can target the `scss` syntax separately using the `scss` option
+            // in that case, we can target the scsyntax separately using the `scss` option
             scss: {
-                additionalData: `@import "~@/variables.scss";`
+                additionalData: `@import "/scss/variables.scss";`
             },
             // pass Less.js Options to less-loader
             less:{

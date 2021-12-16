@@ -3,17 +3,17 @@
     <form>
       <label>Name</label>
       <input
-          type="text"
-          v-model="name"
-          name="name"
-          placeholder="Your Name"
+        v-model="name"
+        type="text"
+        name="name"
+        placeholder="Your Name"
       >
       <label>Email</label>
       <input
-          type="email"
-          v-model="email"
-          name="email"
-          placeholder="Your Email"
+        v-model="email"
+        type="email"
+        name="email"
+        placeholder="Your Email"
       >
       <label>Message</label>
       <textarea
@@ -42,4 +42,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.lol{
+  .lolo{
+
+  }
+}
 </style>
