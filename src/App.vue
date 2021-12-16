@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <div style="height: 100px; width: 100px; background: red" @click="pushSomewhere"></div>
+    <div class="nav-button" @click="$router.push('contact')">Contact</div>
     <div style="border: 1px solid #2c3e50; height: 100px; width: 100px; background: lightgreen">
       <router-view/>
     </div>
@@ -38,5 +37,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.nav-button{
+  padding: 15px;
+  border: 1px solid black;
 }
 </style>
