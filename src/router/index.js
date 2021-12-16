@@ -24,6 +24,9 @@ const router = new Router({
 })
 
 router.afterEach((to,from)=>{
-    document.title = 'Oskar Str. | '+to.name
+    let navName = to.name
+    if(navName) navName = ' | ' + navName
+    else navName = ''
+    document.title = 'Oskar Str.'+ navName
 })
 export default router
