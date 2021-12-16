@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div class="nav-button" @click="$router.push('contact')">Contact</div>
-    <div style="border: 1px solid #2c3e50; height: 100px; width: 100px; background: lightgreen">
+    <navigation/>
+    <div style="border: 1px solid #2c3e50; background: lightgreen">
       <router-view/>
     </div>
   </div>
@@ -9,22 +9,15 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Navigation from "./components/Navigation";
 
 export default {
   name: 'App',
   components: {
+    Navigation
     // HelloWorld
   },
   methods: {
-    pushSomewhere(){
-      console.log(this.$route)
-      if(this.$route.name === "Bar") {
-        this.$router.push('foo')
-      }
-      else{
-        this.$router.push('bar')
-      }
-    },
   }
 }
 </script>

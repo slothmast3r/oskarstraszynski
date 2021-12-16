@@ -3,7 +3,7 @@ import Vue from 'vue'
 import EmailFormContact from "../components/EmailFormContact";
 
 
-const Foo = { template: '<div style="height: 100px; width: 100px; background: blue"">foo</div>' }
+const Foo = { template: '<div>foo</div>' }
 const Bar = { template: '<div>bar</div>' }
 
 Vue.use(Router)
