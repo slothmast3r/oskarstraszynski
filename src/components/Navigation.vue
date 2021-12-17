@@ -33,7 +33,6 @@ export default {
 
 <style scoped lang="scss">
 .nav-wrapper{
-  font-family: 'Raleway', sans-serif;
   margin: 0 auto;
   padding: 50px;
   text-align: center;

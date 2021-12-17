@@ -8,8 +8,8 @@ module.exports = {
             // so this assumes you have a file named `src/variables.sass`
             // Note: this option is named as "prependData" in sass-loader v8
             sass: {
-                additionalData: `@import "/scss/variables.sass"`
-                data: `@import "/scss/index.sass"`
+                additionalData: `@import "/scss/variables.sass"`,
+                data: `@import "/scss/general.sass"`
             },
             // by default the `sass` option will apply to both syntaxes
             // because `scss` syntax is also processed by sass-loader underlyingly

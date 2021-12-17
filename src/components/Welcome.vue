@@ -30,7 +30,7 @@ export default {
   .parallax{
     z-index: 1;
     .image{
-      margin-top: 100px;
+      margin: 60px 0;
       width: 100%;
       background: black;
     }

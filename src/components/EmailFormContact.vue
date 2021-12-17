@@ -46,8 +46,6 @@ export default {
   methods:{
 
     sendEmail(e) {
-      console.log(this.$refs.form)
-      console.log(document.getElementById('form'))
       try {
         emailjs.sendForm('service_7tpkd37', 'template_1qw4kkm',document.getElementById('form'),
             'user_jFHRe62nkzTevWEmjtjml', {
