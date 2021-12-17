@@ -8,7 +8,7 @@
         {{ mySignature.toUpperCase() }}
       </div>
     </div>
-    <parallax class="parallax" :speedFactor="0.5" :parallax="true"><img class="image" :src="require('/src/assets/j.jpg')"></parallax>
+    <parallax class="parallax" :speedFactor="0.75" :parallax="true"><img class="image" :src="require('/src/assets/j.jpg')"></parallax>
   </div>
 </template>
 <script>
@@ -30,7 +30,8 @@ export default {
   .parallax{
     z-index: 1;
     .image{
-      padding: 10px;
+      margin-top: 100px;
+      width: 100%;
       background: black;
     }
   }
@@ -52,7 +53,8 @@ export default {
        color: white;
      }
     .my-name{
-      font-family: 'Babak One', cursive;
+      font-family: 'Raleway', sans-serif;
+      font-weight: bold;
       font-size: 24px;
       color: white;
     }
