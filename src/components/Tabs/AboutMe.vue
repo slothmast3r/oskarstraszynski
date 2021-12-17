@@ -1,15 +1,21 @@
 <template>
   <div>
-
+  {{loremIpsum}}
   </div>
 </template>
 
 <script>
+import Constants from "../Constants";
+
 export default {
-  name: "AboutMe"
+  name: "AboutMe",
+  mixins: [Constants],
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+*{
+  font-size: 24px;
+  color: white;
+}
 </style>

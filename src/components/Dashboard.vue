@@ -2,12 +2,15 @@
   <div>
     <welcome />
     <navigation />
-    <component
-      :is="el.component"
-      v-for="el in navigation"
-      :key="el.key"
-      class="component"
-    />
+    <div class="component-wrapper">
+      <component
+        :is="el.component"
+        v-for="el in navigation"
+        :key="el.key"
+        :ref="'component'"
+        class="component"
+      />
+    </div>
     <button
       :ref="'buttonTopScroll'"
       class="back-to-top-button"
@@ -37,6 +40,12 @@ export default {
   created() {
     window.addEventListener('scroll',this.showHideButton)
   },
+  mounted() {
+    for (let i = 0; i < this.$refs.component.length; i++) {
+      console.log()
+      this.$refs.component[i].$el.style.height = window.innerHeight+'px'
+    }
+  },
   unmounted() {
     window.removeEventListener('scroll',this.showHideButton)
   },
@@ -57,14 +66,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.component{
-  height: 1000px;
-  :nth-of-type(odd){
+.component-wrapper {
+  :nth-child(odd){
     background: white;
+  }
+  :nth-child(even){
+    background: black;
   }
 }
 .back-to-top-button {
-  display: inline-block;
   background-color: black;
   width: 50px;
   height: 50px;
@@ -78,6 +88,9 @@ export default {
   opacity: 0;
   visibility: hidden;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   img{
     width: 38px;
     height: 38px;

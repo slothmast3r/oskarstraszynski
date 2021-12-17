@@ -1,11 +1,15 @@
 <template>
-  <div style="height: 1000px">
+  <div>
+    {{ loremIpsum }}
   </div>
 </template>
 
 <script>
+import Constants from "../Constants";
+
 export default {
-  name: "Home"
+  name: "Home",
+  mixins: [Constants]
 }
 </script>
 
