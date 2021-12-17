@@ -53,8 +53,10 @@ export default {
       this.$refs.component[i].$el.style.height = window.innerHeight+'px'
       if(i === 0) {
         this.navigation[i].scrollPosition = window.innerHeight
+        this.navigation[i].height = window.innerHeight
       }else{
         this.navigation[i].scrollPosition = this.navigation[i-1].scrollPosition + window.innerHeight
+        this.navigation[i].height = window.innerHeight
       }
     }
   },
@@ -70,7 +72,7 @@ export default {
     navChange(){
       let top = window.pageYOffset
       for (let nav of this.navigation) {
-        if(nav.scrollPosition - 30 < top && nav.scrollPosition > top){
+        if(nav.scrollPosition < top && nav.scrollPosition + nav.height > top){
           if(this.$route.name !== nav.component){
             this.$router.push(nav.key)
           }
