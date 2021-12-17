@@ -1,7 +1,13 @@
 <template>
   <div>
-    <welcome />
-    <navigation />
+    <welcome :ref="'welcome'" />
+    <div class="nav-wrapper">
+
+      <navigation
+        :ref="'navBar'"
+        class="nav-bar"
+      />
+    </div>
     <div class="component-wrapper">
       <component
         :is="el.component"
@@ -15,7 +21,9 @@
       :ref="'buttonTopScroll'"
       class="back-to-top-button"
       @click="scrollPageTop"
-    ><img :src="require('/src/assets/arrow_up_white.png')"></button>
+    >
+      <img :src="require('/src/assets/arrow_up_white.png')">
+    </button>
   </div>
 </template>
 
@@ -38,18 +46,56 @@ export default {
   },
   mixins: [Constants],
   created() {
-    window.addEventListener('scroll',this.showHideButton)
+    window.addEventListener('scroll',this.scroll)
   },
   mounted() {
     for (let i = 0; i < this.$refs.component.length; i++) {
-      console.log()
       this.$refs.component[i].$el.style.height = window.innerHeight+'px'
+      if(i === 0) {
+        this.navigation[i].scrollPosition = window.innerHeight
+      }else{
+        this.navigation[i].scrollPosition = this.navigation[i-1].scrollPosition + window.innerHeight
+      }
     }
   },
   unmounted() {
-    window.removeEventListener('scroll',this.showHideButton)
+    window.removeEventListener('scroll',this.scroll)
   },
   methods:{
+    scroll(){
+      this.showHideButton()
+      this.navBarTransition()
+      this.navChange()
+    },
+    navChange(){
+      let top = window.pageYOffset
+      for (let nav of this.navigation) {
+        if(nav.scrollPosition - 30 < top && nav.scrollPosition > top){
+          if(this.$route.name !== nav.component){
+            this.$router.push(nav.key)
+          }
+        }
+      }
+
+    },
+    navBarTransition(){
+      this.$refs.navBar.$el.style.border = '1px solid white'
+
+      if(window.scrollY > this.$refs.welcome.$el.clientHeight){
+        this.$refs.navBar.$el.style.padding = '20px 0'
+        this.$refs.navBar.$el.style.position = 'fixed'
+        this.$refs.navBar.$el.style.fontSize = '16px'
+        this.$refs.navBar.$el.style.width = '100%'
+        this.$refs.navBar.$el.style.top = '0px'
+      }else if (window.scrollY < this.$refs.welcome.$el.clientHeight){
+        this.$refs.navBar.$el.style.padding = '50px 0'
+        this.$refs.navBar.$el.style.position = 'relative'
+        this.$refs.navBar.$el.style.fontSize = '32px'
+        this.$refs.navBar.$el.style.top = '0px'
+        this.$refs.navBar.$el.style.width = ''
+      }
+
+    },
     showHideButton(){
       let button = this.$refs.buttonTopScroll
       if (window.scrollY > 300) {
@@ -67,11 +113,26 @@ export default {
 
 <style scoped lang="scss">
 .component-wrapper {
-  :nth-child(odd){
+  z-index:0;
+  :nth-child(even){
     background: white;
   }
-  :nth-child(even){
+  :nth-child(odd){
     background: black;
+  }
+}
+.nav-wrapper{
+  position: relative;
+  background: black;
+  min-height: 132px;
+  .nav-bar{
+    font-size: 32px;
+    transition: 0.8s;
+    border: 1px solid white;
+    background: black;
+    height: fit-content;
+    min-height: 0px;
+    padding: 50px;
   }
 }
 .back-to-top-button {

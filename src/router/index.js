@@ -2,19 +2,20 @@ import Router from 'vue-router'
 import Vue from 'vue'
 import EmailFormContact from "../components/EmailFormContact";
 
-
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
-
 Vue.use(Router)
 
 const routes = [
-    { path: '/home', name: 'Home', component: Foo },
-    { path: '/aboutMe', name: 'About me', component: Bar },
+    {
+        path: '/home',
+        name: 'Home'
+    },
+    {
+        path: '/aboutMe',
+        name: 'AboutMe',
+    },
     {
         path: '/contact',
         name: 'Contact',
-        component: EmailFormContact
     }
 ]
 
@@ -24,6 +25,7 @@ const router = new Router({
 })
 
 router.afterEach((to,from)=>{
+
     let navName = to.name
     if(navName) navName = ' | ' + navName
     else navName = ''

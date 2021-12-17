@@ -4,6 +4,7 @@
       v-for="el in navigation"
       :key="el.key"
       class="nav animate-borders"
+      :class="{bold: el.component === linkName}"
       @click="navigate(el)"
     >
       {{ el.name }}
@@ -19,7 +20,12 @@ export default {
   mixins: [Constants],
   data(){
     return{
-      
+      linkName: ''
+    }
+  },
+  watch:{
+    $route (to,from){
+      this.linkName = to.name
     }
   },
   methods:{
@@ -33,10 +39,13 @@ export default {
 
 <style scoped lang="scss">
 .nav-wrapper{
-  margin: 0 auto;
-  padding: 50px;
   text-align: center;
+  .nav{
 
+    &.bold{
+      font-weight: bold;
+    }
+  }
   span
   {
     color: #FFF;

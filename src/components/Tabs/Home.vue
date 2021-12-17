@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     {{ loremIpsum }}
   </div>
 </template>
@@ -13,6 +13,6 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 </style>

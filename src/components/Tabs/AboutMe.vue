@@ -14,8 +14,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-*{
-  font-size: 24px;
-  color: white;
-}
 </style>

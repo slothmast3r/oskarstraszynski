@@ -15,8 +15,6 @@ export default {
   name: 'App',
   components: {
     Dashboard,
-    Welcome,
-    Navigation,
   },
   methods: {
   }
