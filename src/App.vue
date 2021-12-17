@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-    <div style="background: black">
-      <welcome></welcome>
-      <navigation/>
-      <router-view/>
+    <div class="app-wrapper">
+      <dashboard/>
     </div>
   </div>
 </template>
@@ -11,12 +9,14 @@
 <script>
 import Navigation from "./components/Navigation";
 import Welcome from "./components/Welcome";
+import Dashboard from "./components/Dashboard";
 
 export default {
   name: 'App',
   components: {
+    Dashboard,
     Welcome,
-    Navigation
+    Navigation,
   },
   methods: {
   }
@@ -34,6 +34,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+.app-wrapper{
+  background: black;
 }
 
 </style>
