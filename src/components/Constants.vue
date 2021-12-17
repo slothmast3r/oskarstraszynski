@@ -3,9 +3,9 @@ export default {
   data(){
     return{
       navigation: [
-        {name: this.$t('home'),key: 'home'},
-        {name: this.$t('aboutMe'), key: 'aboutMe'},
-        {name: this.$t('contact'), key: 'contact'},
+        {name: this.$t('home'), key: 'home',component: 'Home'},
+        {name: this.$t('aboutMe'), key: 'aboutMe', component: 'AboutMe'},
+        {name: this.$t('contact'), key: 'contact', component: 'Contact'},
       ],
       mySignature: 'Oskar Straszyński',
     }
