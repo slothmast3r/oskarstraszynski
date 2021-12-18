@@ -16,6 +16,10 @@ const routes = [
     {
         path: '/contact',
         name: 'Contact',
+    },
+    {
+        path: '/work',
+        name: 'Work',
     }
 ]
 

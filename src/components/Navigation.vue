@@ -1,7 +1,7 @@
 <template>
   <div class="nav-wrapper">
     <span
-      v-for="el in navigation"
+      v-for="el in navElements"
       :key="el.key"
       class="nav animate-borders"
       :class="{bold: el.component === linkName}"
@@ -13,11 +13,12 @@
 </template>
 
 <script>
-import Constants from "./Constants";
 
 export default {
   name: "Navigation",
-  mixins: [Constants],
+  props:{
+    navElements:Array
+  },
   data(){
     return{
       linkName: ''
@@ -30,7 +31,7 @@ export default {
   },
   methods:{
     navigate(el){
-      this.$router.push(el.key)
+      window.scroll({top: el.scrollPosition, behavior: 'smooth'})
 
     }
   }

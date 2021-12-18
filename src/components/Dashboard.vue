@@ -2,10 +2,10 @@
   <div>
     <welcome :ref="'welcome'" />
     <div class="nav-wrapper">
-
       <navigation
         :ref="'navBar'"
         class="nav-bar"
+        :nav-elements="navigation"
       />
     </div>
     <div class="component-wrapper">
@@ -34,6 +34,7 @@ import Home from "./Tabs/Home";
 import Contact from "./Tabs/Contact";
 import AboutMe from "./Tabs/AboutMe";
 import Constants from "./Constants";
+import Work from "./Tabs/Work";
 
 export default {
   name: "Dashboard",
@@ -43,6 +44,7 @@ export default {
     Home,
     Contact,
     AboutMe,
+    Work,
   },
   mixins: [Constants],
   created() {
@@ -52,13 +54,14 @@ export default {
     for (let i = 0; i < this.$refs.component.length; i++) {
       this.$refs.component[i].$el.style.height = window.innerHeight+'px'
       if(i === 0) {
-        this.navigation[i].scrollPosition = window.innerHeight
+        this.navigation[i].scrollPosition = this.$refs.welcome.$el.clientHeight+ 70
         this.navigation[i].height = window.innerHeight
       }else{
         this.navigation[i].scrollPosition = this.navigation[i-1].scrollPosition + window.innerHeight
         this.navigation[i].height = window.innerHeight
       }
     }
+
   },
   unmounted() {
     window.removeEventListener('scroll',this.scroll)
@@ -72,7 +75,7 @@ export default {
     navChange(){
       let top = window.pageYOffset
       for (let nav of this.navigation) {
-        if(nav.scrollPosition < top && nav.scrollPosition + nav.height > top){
+        if(nav.scrollPosition - 10 < top && nav.scrollPosition + nav.height - 10> top){
           if(this.$route.name !== nav.component){
             this.$router.push(nav.key)
           }
@@ -116,10 +119,10 @@ export default {
 <style scoped lang="scss">
 .component-wrapper {
   z-index:0;
-  :nth-child(even){
+  :nth-child(even).component-wrapper{
     background: white;
   }
-  :nth-child(odd){
+  :nth-child(odd).component-wrapper{
     background: black;
   }
 }

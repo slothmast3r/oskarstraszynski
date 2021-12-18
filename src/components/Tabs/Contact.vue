@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="component-wrapper">
+
     <email-form-contact/>
   </div>
 </template>
@@ -12,6 +13,11 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
+.component-wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 </style>

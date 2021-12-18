@@ -8,8 +8,8 @@
 import Constants from "../Constants";
 
 export default {
-  name: "Home",
-  mixins: [Constants]
+  name: "Work",
+  mixins:[Constants]
 }
 </script>
 
