@@ -10,8 +10,11 @@ const messages = {
         message: 'Message',
         emailSentSuccessfully: 'E-mail sent successfully',
         work: 'Work',
+        workExperience: 'Work experience',
         sendingEmailFailed: '',
-        fieldsCannotBeEmpty: ''
+        fieldsCannotBeEmpty: '',
+        iVeWorkedForStartupCompany: 'I\'ve worked for startup company named',
+        currentlyLookingForCoolProjectsToGetInto: 'Currently looking for cool projects to get into.'
 
     }
 }

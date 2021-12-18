@@ -119,11 +119,21 @@ export default {
 <style scoped lang="scss">
 .component-wrapper {
   z-index:0;
-  :nth-child(even).component-wrapper{
-    background: white;
+  :nth-child(even) {
+    /deep/.text {
+      color: black;
+    }
+    &.component-wrapper {
+      background: white;
+    }
   }
-  :nth-child(odd).component-wrapper{
-    background: black;
+  :nth-child(odd) {
+    /deep/.text {
+      color: white;
+    }
+    &.component-wrapper {
+      background: black;
+    }
   }
 }
 .nav-wrapper{
