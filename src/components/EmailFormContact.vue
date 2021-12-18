@@ -71,6 +71,7 @@ import emailjs from 'emailjs-com';
 import{ init } from 'emailjs-com';
 import UserIcon from '../assets/person_ico'
 import MailIcon from '../assets/mail'
+import {EventBus} from "../main";
 init("user_jFHRe62nkzTevWEmjtjml");
 
 
@@ -90,22 +91,31 @@ export default {
   methods:{
 
     sendEmail(e) {
-      try {
-        emailjs.sendForm('service_7tpkd37', 'template_1qw4kkm',document.getElementById('form'),
-            'user_jFHRe62nkzTevWEmjtjml', {
-              from_name: this.name,
-              to_name: 'Oskar',
-              reply_to: this.email,
-              message: this.message
-            })
+      if(this.name && this.message && this.email) {
+        try {
+          emailjs.sendForm('service_7tpkd37', 'template_1qw4kkm', document.getElementById('form'),
+              'user_jFHRe62nkzTevWEmjtjml', {
+                from_name: this.name,
+                to_name: 'Oskar',
+                reply_to: this.email,
+                message: this.message
+              })
 
-      } catch(error) {
-        console.log({error})
+        } catch (error) {
+          console.log({error})
+          EventBus.$emit('new-info-bar', {message: this.$t('sendingEmailFailed')})
+
+        }
+        // Reset form field
+        this.name = ''
+        this.email = ''
+        this.message = ''
+
+        EventBus.$emit('new-info-bar', {message: this.$t('emailSentSuccessfully')})
+      }else{
+        EventBus.$emit('new-info-bar', {message: this.$t('fieldsCannotBeEmpty')})
+
       }
-      // Reset form field
-      this.name = ''
-      this.email = ''
-      this.message = ''
     },
   }
 }

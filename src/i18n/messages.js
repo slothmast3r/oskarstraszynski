@@ -8,7 +8,11 @@ const messages = {
         contact: 'Contact',
         contactMe: 'Contact me',
         message: 'Message',
-        work: 'Work'
+        emailSentSuccessfully: 'E-mail sent successfully',
+        work: 'Work',
+        sendingEmailFailed: '',
+        fieldsCannotBeEmpty: ''
+
     }
 }
 
