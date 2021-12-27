@@ -1,6 +1,7 @@
 const path = require('path')
 module.exports = {
     runtimeCompiler: true,
+    publicPath: '/oskarstraszynski/',
     css: {
         loaderOptions: {
             // pass options to sass-loader
